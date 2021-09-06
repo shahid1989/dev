@@ -15,18 +15,19 @@ terraform {
     organization = "shahid-test"
 
     workspaces {
-      name = "hahid-actions-demo"
+      name = "shahid-actions-demo"
     }
   }
 }
 
 
+
 provider "aws" {
   region = "ap-south-1"
 }
- 
+
 
 resource "aws_instance" "newec3" {
-  ami           = "ami-0300b3c1504b56ca4"
+  ami           = "ami-04db49c0fb2215364"
   instance_type = "t2.micro"
 }
