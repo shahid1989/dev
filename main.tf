@@ -21,40 +21,13 @@ terraform {
 }
 
 provider "aws" {
-    region = "us-east-1"
-  
+  region = "ap-south-1"
 }
 
-resource "aws_s3_bucket" "shahidttts3" {
-    bucket = "shahidterrbk"
-    acl = "public-read"
-    
-    tags = {
-      Name = "mybucket"
-      Enviroment = "dev"
+ 
 
-    }
-  
-}
 
-resource "aws_s3_bucket_object" "sariqterra" {
-    key = "sariq19189t111"
-    storage_class = "STANDARD_IA"
-    bucket = aws_s3_bucket.shahidttts3.id
-   
-
-    tags = {
-      Name = "objectsariq198934"
-    }
-  
-}
-
-resource "aws_s3_bucket_object" "sariqtestah" {
-    key = "sariqmmkt9"
-    storage_class = "ONEZONE_IA"
-    bucket = aws_s3_bucket.shahidttts3.id
-  
-  tags ={
-    Name = "deveng"
-  }
+resource "aws_instance" "newec3" {
+  ami           = "ami-04db49c0fb2215364"
+  instance_type = "t2.micro"
 }
