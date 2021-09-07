@@ -40,10 +40,6 @@ resource "aws_instance" "webeast2" {
     instance_type = "t2.micro"
     ami = "ami-0a727a421bd5a51a3"
     key_name = "windowkey"
-  
-  tags = {
-    Name = "webeast2"
-  }
 }
 
 resource "aws_instance" "webeast1" {
@@ -54,8 +50,4 @@ resource "aws_instance" "webeast1" {
     key_name = "LB"
   availability_zone = "us-east-1a"
   provider = aws.useast1
-
-  tags = {
-    Name = "webeast1"
-  }
 }
