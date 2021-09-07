@@ -23,27 +23,11 @@ terraform {
 
 
 provider "aws" {
- region = "us-east-2"
- }
-
-provider "aws" {
- region = "us-east-1"
- alias = "useast1"
+  region = "ap-south-1"
 }
 
 
-resource "aws_instance" "webeast2" {
-    instance_type = "t2.micro"
-    ami = "ami-0a727a421bd5a51a3"
-    key_name = "windowkey"
-}
-
-resource "aws_instance" "webeast1" {
-    ami = "ami-029bfac3973c1bda1"
-    instance_type = "t2.micro"
-    vpc_security_group_ids = ["sg-00a1224620ceeeb48"]
-    subnet_id = "subnet-0998c20976f75fb35"
-    key_name = "LB"
-  availability_zone = "us-east-1a"
-  provider = aws.useast1
+resource "aws_instance" "newec3" {
+  ami           = "ami-04db49c0fb2215364"
+  instance_type = "t2.micro"
 }
