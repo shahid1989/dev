@@ -24,14 +24,10 @@ terraform {
 
 provider "aws" {
  region = "us-east-2"
- #access_key = "AKIAY6DARVE2USKX6J5X"
- #secret_key = "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"
-}
+ }
 
 provider "aws" {
  region = "us-east-1"
- #access_key = "AKIAY6DARVE2USKX6J5X"
- #secret_key = "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"
  alias = "useast1"
 }
 
