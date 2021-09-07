@@ -139,5 +139,4 @@ resource "aws_eip" "one" {
   network_interface         = aws_network_interface.crm-nic.id
   associate_with_private_ip = "10.0.1.22"
   depends_on = [aws_internet_gateway.crmig,aws_instance.crm-web]
-
 }
