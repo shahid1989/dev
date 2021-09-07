@@ -33,10 +33,8 @@ resource "aws_vpc" "crm" {
 
     tags = {
       Name = "crmvpc"
-
     }
-  
-}
+  }
 
 resource "aws_subnet" "crmsubnet" {
     vpc_id = aws_vpc.crm.id
@@ -44,9 +42,7 @@ resource "aws_subnet" "crmsubnet" {
     availability_zone = "us-east-2b"
     tags = {
      Name = "crmsubnet"
-
-    }
-  
+   }
 }
 
 resource "aws_security_group" "crmsg" {
@@ -92,29 +88,23 @@ resource "aws_route_table" "crmrt" {
          
          cidr_block = "0.0.0.0/0"
          gateway_id = aws_internet_gateway.crmig.id
-         
-        }
+           }
 
       tags = {
           Name = "crmrt"
-
-      }
+       }
   }
 
   resource "aws_route_table_association" "crmrtas" {
       subnet_id = aws_subnet.crmsubnet.id
       route_table_id = aws_route_table.crmrt.id
-
-    
-  }
+}
 
   resource "aws_network_interface" "crm-nic" {
   subnet_id       = aws_subnet.crmsubnet.id
   private_ips     = ["10.0.1.22"]
   security_groups = [aws_security_group.crmsg.id]
-
-
-  }
+}
 
   resource "aws_instance" "crm-web" {
     ami = "ami-0a727a421bd5a51a3"
@@ -131,7 +121,6 @@ network_interface {
  network_interface_id = aws_network_interface.crm-nic.id
 
   }
-
 }
 
 resource "aws_eip" "one" {
