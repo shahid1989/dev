@@ -38,13 +38,13 @@ resource "aws_s3_bucket" "shahidttts3" {
 }
 
 resource "aws_s3_bucket_object" "sariqterra" {
-    key = "sariq19189t"
+    key = "sariq19189t111"
     storage_class = "STANDARD_IA"
     bucket = aws_s3_bucket.shahidttts3.id
    
 
     tags = {
-      Name = "objectsariq1989"
+      Name = "objectsariq198934"
     }
   
 }
